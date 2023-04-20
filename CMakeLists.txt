@@ -19,6 +19,7 @@ endif()
 
 set(CHAPTERS
     03
+    04
 )
 
 function(create_project_from_sources chapter demo)
@@ -36,13 +37,13 @@ function(create_project_from_sources chapter demo)
         "${chapter}/*.geom"
     )
     foreach(SHADER ${SHADERS})
-        add_custom_command(TARGET ${NAME} POST_BUILD
+        add_custom_command(TARGET ${NAME} PRE_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
                 ${SHADER}
                 $<TARGET_FILE_DIR:${NAME}>
         )
     endforeach(SHADER)
-    add_custom_command(TARGET ${NAME} POST_BUILD
+    add_custom_command(TARGET ${NAME} PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
             ${CMAKE_BINARY_DIR}/fonts
             $<TARGET_FILE_DIR:${NAME}>/fonts
