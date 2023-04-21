@@ -21,6 +21,7 @@ set(CHAPTERS
     03
     04
     05
+    06
 )
 
 function(create_project_from_sources chapter demo)
@@ -29,21 +30,23 @@ function(create_project_from_sources chapter demo)
     message(STATUS "Configuring example ${NAME}")
     add_executable(${NAME} ${demo})
     target_compile_definitions(${NAME} PRIVATE NAME="${NAME}")
-    # copy shader files to build directory
-    file(GLOB SHADERS
+    # copy shaders and textures to build directory
+    file(GLOB RESOURCES
         "${chapter}/*.vert"
         "${chapter}/*.tesc"
         "${chapter}/*.tese"
         "${chapter}/*.frag"
         "${chapter}/*.geom"
+        "${chapter}/*.jpg"
+        "${chapter}/*.png"
     )
-    foreach(SHADER ${SHADERS})
+    foreach(RESOURCE ${RESOURCES})
         add_custom_command(TARGET ${NAME} PRE_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_if_different
-                ${SHADER}
+                ${RESOURCE}
                 $<TARGET_FILE_DIR:${NAME}>
         )
-    endforeach(SHADER)
+    endforeach(RESOURCE)
     add_custom_command(TARGET ${NAME} PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
             ${CMAKE_BINARY_DIR}/fonts
