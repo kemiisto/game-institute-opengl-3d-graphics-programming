@@ -20,6 +20,7 @@ endif()
 set(CHAPTERS
     03
     04
+    05
 )
 
 function(create_project_from_sources chapter demo)
@@ -38,7 +39,7 @@ function(create_project_from_sources chapter demo)
     )
     foreach(SHADER ${SHADERS})
         add_custom_command(TARGET ${NAME} PRE_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
                 ${SHADER}
                 $<TARGET_FILE_DIR:${NAME}>
         )
