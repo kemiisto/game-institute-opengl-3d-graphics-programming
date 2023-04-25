@@ -22,6 +22,7 @@ set(CHAPTERS
     04
     05
     06
+    08
 )
 
 function(create_project_from_sources chapter demo)
