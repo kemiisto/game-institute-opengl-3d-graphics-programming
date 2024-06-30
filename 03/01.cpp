@@ -1,8 +1,8 @@
 /**
  * Creates a basic resizeable window and OpenGL 3.3 context using GLFW.
  */
-#include "main.h"
 #include <tinygl/tinygl.h>
+#include <tinygl/main.h>
 #include <iostream>
 
 class Window final : public tinygl::Window
@@ -18,4 +18,4 @@ void Window::draw()
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
-MAIN
+MAIN(3, 3, 800, 600)
