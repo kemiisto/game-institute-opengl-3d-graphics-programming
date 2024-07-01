@@ -1,8 +1,8 @@
 /**
  * Adds Rendering a triangle using OpenGL 3.3.
  */
-#include "main.h"
 #include <tinygl/tinygl.h>
+#include <tinygl/main.h>
 #include <array>
 #include <iostream>
 #include <sstream>
@@ -10,9 +10,9 @@
 const char* windowTitle = NAME;
 
 constexpr auto vertices = std::array {
-     0.0f,  0.5f, 0.0f,	// Top
-     0.5f, -0.5f, 0.0f,	// Right 
-    -0.5f, -0.5f, 0.0f	// Left
+     0.0f,  0.5f, 0.0f,	 // Top
+     0.5f, -0.5f, 0.0f,	 // Right
+    -0.5f, -0.5f, 0.0f	 // Left
 };
 
 class Window final : public tinygl::Window
@@ -60,7 +60,8 @@ void Window::draw()
     vao.unbind();
 }
 
-void Window::showFPS() {
+void Window::showFPS()
+{
     static double previousSeconds = 0.0;
     static int frameCount = 0;
 
@@ -81,4 +82,4 @@ void Window::showFPS() {
     }
 }
 
-MAIN
+MAIN(3, 3, 800, 600)

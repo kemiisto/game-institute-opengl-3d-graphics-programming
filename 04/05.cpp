@@ -1,8 +1,8 @@
 /**
  * Adds index buffer (Element Array Buffer).
  */
-#include "main.h"
 #include <tinygl/tinygl.h>
+#include <tinygl/main.h>
 #include <array>
 #include <iostream>
 #include <sstream>
@@ -75,11 +75,12 @@ void Window::draw()
     glClear(GL_COLOR_BUFFER_BIT);
     program.use();
     vao.bind();
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
     vao.unbind();
 }
 
-void Window::showFPS() {
+void Window::showFPS()
+{
     static double previousSeconds = 0.0;
     static int frameCount = 0;
 
@@ -100,4 +101,4 @@ void Window::showFPS() {
     }
 }
 
-MAIN
+MAIN(3, 3, 800, 600)

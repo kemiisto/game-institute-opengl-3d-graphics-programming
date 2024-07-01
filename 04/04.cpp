@@ -1,8 +1,8 @@
 /**
  * Render quad (2 triangles).
  */
-#include "main.h"
 #include <tinygl/tinygl.h>
+#include <tinygl/main.h>
 #include <array>
 #include <iostream>
 #include <sstream>
@@ -74,7 +74,8 @@ void Window::draw()
     vao.unbind();
 }
 
-void Window::showFPS() {
+void Window::showFPS()
+{
     static double previousSeconds = 0.0;
     static int frameCount = 0;
 
@@ -95,4 +96,4 @@ void Window::showFPS() {
     }
 }
 
-MAIN
+MAIN(3, 3, 800, 600)

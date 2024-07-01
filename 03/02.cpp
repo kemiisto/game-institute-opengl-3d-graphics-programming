@@ -3,8 +3,8 @@
  * Creates keyboard handler callback and sets the Esc key to exit the program.
  * Creates FPS counter and displays in app title bar.
  */
-#include "main.h"
 #include <tinygl/tinygl.h>
+#include <tinygl/main.h>
 #include <iostream>
 #include <sstream>
 
@@ -36,7 +36,8 @@ void Window::draw()
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Window::showFPS() {
+void Window::showFPS()
+{
     static double previousSeconds = 0.0;
     static int frameCount = 0;
 
@@ -57,4 +58,4 @@ void Window::showFPS() {
     }
 }
 
-MAIN
+MAIN(3, 3, 800, 600)
