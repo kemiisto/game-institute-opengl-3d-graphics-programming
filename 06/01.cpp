@@ -1,7 +1,7 @@
 /**
  * Add texture.
  */
-#include "main.h"
+#include <tinygl/main.h>
 #include <tinygl/tinygl.h>
 #include <array>
 #include <iostream>
@@ -108,4 +108,4 @@ void Window::showFPS() {
     }
 }
 
-MAIN
+MAIN(3, 3, 800, 600)

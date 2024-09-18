@@ -5,7 +5,7 @@ project(game_institute_opengl_3d_graphics_programming)
 set(CMAKE_CXX_STANDARD 20)
 
 add_subdirectory(tinygl)
-include_directories(. tinygl/include tinygl/imgui)
+include_directories(. tinygl/include tinygl/imgui tinygl/tinyla/include)
 link_libraries(tinygl)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")

@@ -1,7 +1,7 @@
 /**
  * Add another texture.
  */
-#include "main.h"
+#include <tinygl/main.h>
 #include <tinygl/tinygl.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -177,4 +177,4 @@ void Window::showFPS() {
     }
 }
 
-MAIN
+MAIN(3, 3, 800, 600)

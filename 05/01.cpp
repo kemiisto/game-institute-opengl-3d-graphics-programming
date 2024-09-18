@@ -1,7 +1,7 @@
 /**
  * Colored quad bouncing around the screen.
  */
-#include "main.h"
+#include <tinygl/main.h>
 #include <tinygl/tinygl.h>
 #include <array>
 #include <iostream>
@@ -77,8 +77,8 @@ void Window::draw()
 
     auto time = tinygl::getTime<float>();
     auto blueColor = (std::sin(time) / 2) + 0.5f;
-    auto pos = tinygl::Vec2{std::sin(time) / 2, std::cos(time) / 2};
-    program.setUniformValue("vertColor", tinygl::Vec4{0.0f, 0.0f, blueColor, 1.0f});
+    auto pos = tinyla::Vec2{std::sin(time) / 2, std::cos(time) / 2};
+    program.setUniformValue("vertColor", tinyla::Vec4{0.0f, 0.0f, blueColor, 1.0f});
     program.setUniformValue("posOffset", pos);
 
     vao.bind();
@@ -107,4 +107,4 @@ void Window::showFPS() {
     }
 }
 
-MAIN
+MAIN(3, 3, 800, 600)
