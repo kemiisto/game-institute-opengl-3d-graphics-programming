@@ -77,8 +77,8 @@ void Window::draw()
 
     auto time = tinygl::getTime<float>();
     auto blueColor = (std::sin(time) / 2) + 0.5f;
-    auto pos = tinyla::Vec2{std::sin(time) / 2, std::cos(time) / 2};
-    program.setUniformValue("vertColor", tinyla::Vec4{0.0f, 0.0f, blueColor, 1.0f});
+    auto pos = tinyla::vec2f{std::sin(time) / 2, std::cos(time) / 2};
+    program.setUniformValue("vertColor", tinyla::vec4f{0.0f, 0.0f, blueColor, 1.0f});
     program.setUniformValue("posOffset", pos);
 
     vao.bind();
